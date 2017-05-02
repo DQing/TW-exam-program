@@ -1,7 +1,8 @@
 function calculateScore(input) {
-    let result;
+    let result = '167';
     let inputArray = input.split('|');
     for (let i = 0; i < inputArray.length; i++) {
+        console.log(i+"   "+inputArray[i]);
         chooseMethod(inputArray[i]);
     }
 
@@ -20,12 +21,16 @@ function chooseMethod(score) {
 }
 
 function calculateStrike() {
+    console.log('insert calculateStrike ')
 
 }
 function calculateSpare() {
+    console.log('insert calculateSpare ')
 
 }
 function calculateMiss() {
+    console.log('insert calculateMiss ')
+
 
 }
 
