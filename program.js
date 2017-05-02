@@ -1,35 +1,38 @@
 function calculateScore(input) {
-    let result = '167';
+    let result = 0;
     let inputArray = input.split('|');
-    for (let i = 0; i < inputArray.length; i++) {
-        console.log(i+"   "+inputArray[i]);
-        chooseMethod(inputArray[i]);
+    for (let i = 0; i < inputArray.length - 2; i++) {
+        result = chooseMethod(inputArray[i], result, inputArray);
     }
 
     console.log(result);
 }
 
-function chooseMethod(score) {
+function chooseMethod(score, result, inputArray) {
     let scoreArray = score.split('');
+
     if (scoreArray.indexOf('X') != -1) {
-        calculateStrike();
+        return calculateStrike(result, inputArray);
     } else if (scoreArray.indexOf('/') != -1) {
-        calculateSpare();
+        return calculateSpare(result, inputArray);
     } else if (scoreArray.indexOf('-') != -1) {
-        calculateMiss();
+        return calculateMiss(result, inputArray);
     }
+    return result;
 }
 
-function calculateStrike() {
-    console.log('insert calculateStrike ')
+function calculateStrike(result, inputArray) {
+    result = result + 20;
+    return result;
+}
+function calculateSpare(result, inputArray) {
+    result = result + 1;
+    return result;
 
 }
-function calculateSpare() {
-    console.log('insert calculateSpare ')
-
-}
-function calculateMiss() {
-    console.log('insert calculateMiss ')
+function calculateMiss(result, inputArray) {
+    result = result + 1;
+    return result;
 
 
 }
