@@ -5,12 +5,8 @@ function calculateScore(input) {
     for (let i = 0; i < inputArray.length; i++) {
         resultScore.push(frameScore(inputArray[i]));
     }
-    // console.log(resultScore);
     let elevenArr = deleteSpace(resultScore);
-    // console.log(elevenArr);
     let finalFrameScore = getFinalFrameScore(elevenArr);
-    // console.log(getFinalFrameScore(elevenArr));
-    //
     result = getScore(finalFrameScore);
     console.log(result);
 }
@@ -28,7 +24,6 @@ function getFinalFrameScore(elevenArr) {
         if (elevenArr[i] === 10) {
             if (Array.isArray(elevenArr[i + 1])) {
                 finalFrameScore.push(10 + elevenArr[i + 1][2]);
-                // console.log(finalFrameScore);
             } else {
                 if (Array.isArray(elevenArr[i + 2])) {
 
@@ -36,18 +31,14 @@ function getFinalFrameScore(elevenArr) {
                 } else {
                     finalFrameScore.push(10 + 10 + 10);
                 }
-
-                // console.log(finalFrameScore);
             }
 
         } else if (Array.isArray(elevenArr[i])) {
             if (elevenArr[i][2] === 10 && Array.isArray(elevenArr[i + 1])) {
                 finalFrameScore.push(10 + elevenArr[i + 1][0]);
-                // console.log(finalFrameScore);
             } else if (!Array.isArray(elevenArr[i + 1]) && elevenArr[i + 1] != -1 && elevenArr[i][2] === 10) {
 
                 finalFrameScore.push(elevenArr[i][2] + elevenArr[i + 1]);
-                // console.log(finalFrameScore);
             } else {
                 finalFrameScore.push(elevenArr[i][2]);
             }
